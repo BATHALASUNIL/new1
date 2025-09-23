@@ -1,0 +1,17 @@
+name: second_workflow
+
+on:
+ push
+
+jobs: 
+  build:
+   runs-on: ubuntu-latest
+   steps:
+    - name: Echo
+      run: echo "helloworld"
+  deploy:
+   needs: build
+   runs-on: windows-latest
+   steps:
+    - name: echo
+      run: echo "windows"
